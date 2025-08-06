@@ -1,26 +1,142 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    /* Custom Colors */
+    --color-primary: 244 90% 60%; /* #4F46E5 - Indigo 600 */
+    --color-primary-80: 244 90% 50%; /* Slightly darker primary for gradients */
+    --color-primary-foreground: 0 0% 100%; /* White */
+
+    --color-accent: 190 80% 53%; /* #22D3EE - Cyan 400 */
+    --color-accent-foreground: 216 30% 11%; /* Slate 900 */
+
+    --color-background: 210 20% 98%; /* #F8FAFC - Slate 50 */
+    --color-foreground: 216 30% 11%; /* #0F172A - Slate 900 */
+
+    --color-sidebar: 216 28% 18%; /* #1E293B - Slate 800 */
+    --color-sidebar-foreground: 210 40% 98%; /* White */
+    --color-sidebar-accent: 216 28% 25%; /* Slightly lighter sidebar for accent */
+    --color-sidebar-accent-foreground: 210 40% 98%; /* White */
+    --color-sidebar-border: 216 28% 25%; /* Sidebar border */
+    --color-sidebar-ring: 244 90% 60%; /* Primary color for sidebar ring */
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 210 40% 98%;
+
+    /* Custom Colors for Dark Mode (adjust as needed) */
+    --color-primary: 244 90% 60%; /* #4F46E5 - Indigo 600 */
+    --color-primary-80: 244 90% 50%;
+    --color-primary-foreground: 0 0% 100%;
+
+    --color-accent: 190 80% 53%; /* #22D3EE - Cyan 400 */
+    --color-accent-foreground: 210 40% 98%; /* White */
+
+    --color-background: 216 30% 11%; /* #0F172A - Slate 900 */
+    --color-foreground: 210 20% 98%; /* #F8FAFC - Slate 50 */
+
+    --color-sidebar: 216 28% 18%; /* #1E293B - Slate 800 */
+    --color-sidebar-foreground: 210 40% 98%; /* White */
+    --color-sidebar-accent: 216 28% 25%;
+    --color-sidebar-accent-foreground: 210 40% 98%;
+    --color-sidebar-border: 216 28% 25%;
+    --color-sidebar-ring: 244 90% 60%;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
+
+/* Shadcn Sidebar Theming */
+@layer base {
+  :root {
+    --sidebar-background: var(--color-sidebar);
+    --sidebar-foreground: var(--color-sidebar-foreground);
+    --sidebar-primary: var(--color-primary);
+    --sidebar-primary-foreground: var(--color-primary-foreground);
+    --sidebar-accent: var(--color-sidebar-accent);
+    --sidebar-accent-foreground: var(--color-sidebar-accent-foreground);
+    --sidebar-border: var(--color-sidebar-border);
+    --sidebar-ring: var(--color-sidebar-ring);
+  }
+
+  .dark {
+    --sidebar-background: var(--color-sidebar);
+    --sidebar-foreground: var(--color-sidebar-foreground);
+    --sidebar-primary: var(--color-primary);
+    --sidebar-primary-foreground: var(--color-primary-foreground);
+    --sidebar-accent: var(--color-sidebar-accent);
+    --sidebar-accent-foreground: var(--color-sidebar-accent-foreground);
+    --sidebar-border: var(--color-sidebar-border);
+    --sidebar-ring: var(--color-sidebar-ring);
+  }
+}
+html, body {
+  overflow-x: hidden;
+}
+
+
